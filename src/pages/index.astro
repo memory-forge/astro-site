@@ -1,11 +1,149 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import "../styles/global.css";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const projects = [
+  {
+    title: "Pulse Option Predictor",
+    tag: "signal tool",
+    text: "短期シグナルの揺らぎを観測する実験的インターフェース。"
+  },
+  {
+    title: "Synthetic Echo Series",
+    tag: "visual study",
+    text: "生成的な残響、記憶、ノイズを扱う小さな作品群。"
+  },
+  {
+    title: "Signal Archive",
+    tag: "research notes",
+    text: "断片的なログ、仮説、観測結果を保存する静かな保管庫。"
+  },
+  {
+    title: "Forge Log",
+    tag: "atelier diary",
+    text: "制作過程と設計メモを記録するworkbench journal。"
+  }
+];
+
+const updates = [
+  {
+    date: "2026.05.21",
+    title: "Archive shell initialized",
+    text: "memory-forgeのトップページ構造を起動。"
+  },
+  {
+    date: "2026.05.18",
+    title: "Signal layout test",
+    text: "読みやすさを保ったcyber interfaceを検証。"
+  },
+  {
+    date: "2026.05.12",
+    title: "Prototype log migrated",
+    text: "実験作品のメモをarchive formatへ整理。"
+  }
+];
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="memory-forge is a personal research lab and experimental web atelier." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>memory-forge | Synthetic Archive</title>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="/" aria-label="memory-forge home">memory-forge</a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="/">Home</a>
+          <a href="#projects">Projects</a>
+          <a href="#archive">Archive</a>
+          <a href="#updates">Blog</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow">personal lab / web atelier / archive node</p>
+            <h1 id="hero-title">memory-forge</h1>
+            <p class="hero-kicker">Synthetic archive / experimental web atelier / signal research</p>
+            <p class="hero-text">
+              記憶、信号、インターフェースの断片を鍛造する個人研究所。
+              Digital fragments are shaped here into tools, logs, and quiet experiments.
+            </p>
+            <a class="archive-link" href="#archive">ENTER THE ARCHIVE</a>
+          </div>
+
+          <aside class="status-panel" aria-label="System status">
+            <div class="panel-line">
+              <span>SYSTEM STATUS</span>
+              <strong>ONLINE</strong>
+            </div>
+            <div class="panel-line">
+              <span>SIGNAL QUALITY</span>
+              <strong>STABLE</strong>
+            </div>
+            <div class="panel-line">
+              <span>LAST UPDATE</span>
+              <strong>2026.05.21</strong>
+            </div>
+          </aside>
+        </section>
+
+        <section class="section" id="projects" aria-labelledby="projects-title">
+          <div class="section-heading">
+            <p class="eyebrow">active shelves</p>
+            <h2 id="projects-title">Projects</h2>
+          </div>
+
+          <div class="project-grid">
+            {projects.map((project) => (
+              <article class="project-card">
+                <p>{project.tag}</p>
+                <h3>{project.title}</h3>
+                <span>{project.text}</span>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section class="section updates-section" id="updates" aria-labelledby="updates-title">
+          <div class="section-heading">
+            <p class="eyebrow">latest logs</p>
+            <h2 id="updates-title">Updates</h2>
+          </div>
+
+          <div class="updates-list">
+            {updates.map((update) => (
+              <article class="update-row">
+                <time datetime={update.date.replaceAll(".", "-")}>{update.date}</time>
+                <div>
+                  <h3>{update.title}</h3>
+                  <p>{update.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section class="archive-band" id="archive" aria-label="Archive statement">
+          <p>ARCHIVE NODE 00</p>
+          <h2>Signals preserved. Tools refined. Memories recompiled.</h2>
+        </section>
+      </main>
+
+      <footer class="site-footer" id="contact">
+        <nav aria-label="Social links">
+          <a href="https://github.com/" rel="noreferrer">GitHub</a>
+          <a href="https://x.com/" rel="noreferrer">X</a>
+          <a href="https://note.com/" rel="noreferrer">Note</a>
+          <a href="mailto:hello@example.com">Contact</a>
+        </nav>
+        <p>&copy; 2026 memory-forge. All signals reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>
