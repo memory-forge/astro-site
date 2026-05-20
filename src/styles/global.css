@@ -130,12 +130,78 @@ p {
   margin-top: 0;
 }
 
-h1 {
-  margin-bottom: 18px;
-  font-size: clamp(3.4rem, 11vw, 8.6rem);
-  line-height: 0.9;
-  letter-spacing: 0;
+.brand-logo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(0.3rem, 1.4vw, 0.8rem);
+  width: min(100%, 920px);
+  margin-bottom: 24px;
+  padding: clamp(0.82rem, 2vw, 1.25rem) clamp(0.7rem, 2.2vw, 1.6rem);
+  overflow: hidden;
+  color: #d8ffff;
+  font-family: "Arial Narrow", "Roboto Condensed", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(2.4rem, 7vw, 5.45rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: 0.04em;
   text-transform: lowercase;
+  white-space: nowrap;
+  text-shadow:
+    0 0 3px rgba(227, 255, 255, 0.95),
+    0 0 14px rgba(33, 230, 255, 0.82),
+    0 0 34px rgba(33, 230, 255, 0.42);
+}
+
+.brand-logo::before,
+.brand-logo::after {
+  position: absolute;
+  left: clamp(2.2rem, 6vw, 5.7rem);
+  right: clamp(2.2rem, 6vw, 5.7rem);
+  height: 1px;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(196, 255, 255, 0.55), transparent);
+  box-shadow: 0 0 18px rgba(33, 230, 255, 0.55);
+}
+
+.brand-logo::before {
+  top: 0.55rem;
+}
+
+.brand-logo::after {
+  bottom: 0.55rem;
+}
+
+.logo-text {
+  display: inline-block;
+  transform: scaleX(1.08);
+  transform-origin: center;
+  -webkit-text-stroke: 1px rgba(210, 255, 255, 0.58);
+}
+
+.logo-slash {
+  color: var(--cyan);
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: 0.82em;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-shadow:
+    0 0 5px rgba(255, 255, 255, 0.75),
+    0 0 18px rgba(33, 230, 255, 0.95);
+}
+
+.logo-bracket {
+  color: #c7ffff;
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: 1.18em;
+  font-weight: 400;
+  line-height: 0.75;
+  text-shadow:
+    0 0 5px rgba(236, 255, 255, 0.9),
+    0 0 26px rgba(33, 230, 255, 0.9),
+    0 0 58px rgba(33, 230, 255, 0.45);
 }
 
 .hero-kicker {
@@ -398,8 +464,27 @@ h1 {
     padding: 46px 0 54px;
   }
 
-  h1 {
-    font-size: clamp(3rem, 17vw, 5.4rem);
+  .brand-logo {
+    gap: clamp(0.18rem, 1.7vw, 0.42rem);
+    width: 100%;
+    padding-inline: 0.2rem;
+    font-size: clamp(1.52rem, 10.5vw, 3.05rem);
+    letter-spacing: 0;
+  }
+
+  .brand-logo::before,
+  .brand-logo::after {
+    left: clamp(1.6rem, 9vw, 3rem);
+    right: clamp(1.6rem, 9vw, 3rem);
+  }
+
+  .logo-text {
+    transform: scaleX(1.02);
+    -webkit-text-stroke-width: 0.6px;
+  }
+
+  .logo-bracket {
+    font-size: 1.08em;
   }
 
   .archive-link {

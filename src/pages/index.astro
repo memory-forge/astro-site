@@ -1,5 +1,5 @@
 ---
-import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
 
 const projects = [
   {
@@ -43,107 +43,104 @@ const updates = [
 ];
 ---
 
-<!doctype html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="memory-forge is a personal research lab and experimental web atelier." />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>memory-forge | Synthetic Archive</title>
-  </head>
-  <body>
-    <div class="site-shell">
-      <header class="site-header">
-        <a class="brand" href="/" aria-label="memory-forge home">memory-forge</a>
-        <nav class="site-nav" aria-label="Main navigation">
-          <a href="/">Home</a>
-          <a href="#projects">Projects</a>
-          <a href="#archive">Archive</a>
-          <a href="#updates">Blog</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </header>
+<Layout>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="memory-forge home">memory-forge</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#archive">Archive</a>
+        <a href="#updates">Blog</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-      <main>
-        <section class="hero" aria-labelledby="hero-title">
-          <div class="hero-copy">
-            <p class="eyebrow">personal lab / web atelier / archive node</p>
-            <h1 id="hero-title">memory-forge</h1>
-            <p class="hero-kicker">Synthetic archive / experimental web atelier / signal research</p>
-            <p class="hero-text">
-              記憶、信号、インターフェースの断片を鍛造する個人研究所。
-              Digital fragments are shaped here into tools, logs, and quiet experiments.
-            </p>
-            <a class="archive-link" href="#archive">ENTER THE ARCHIVE</a>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">personal lab / web atelier / archive node</p>
+          <h1 class="brand-logo" id="hero-title" aria-label="memory // forge">
+            <span class="logo-bracket" aria-hidden="true">[</span>
+            <span class="logo-text">memory</span>
+            <span class="logo-slash">//</span>
+            <span class="logo-text">forge</span>
+            <span class="logo-bracket" aria-hidden="true">]</span>
+          </h1>
+          <p class="hero-kicker">Synthetic archive / experimental web atelier / signal research</p>
+          <p class="hero-text">
+            記憶、信号、インターフェースの断片を鍛造する個人研究所。
+            Digital fragments are shaped here into tools, logs, and quiet experiments.
+          </p>
+          <a class="archive-link" href="#archive">ENTER THE ARCHIVE</a>
+        </div>
+
+        <aside class="status-panel" aria-label="System status">
+          <div class="panel-line">
+            <span>SYSTEM STATUS</span>
+            <strong>ONLINE</strong>
           </div>
-
-          <aside class="status-panel" aria-label="System status">
-            <div class="panel-line">
-              <span>SYSTEM STATUS</span>
-              <strong>ONLINE</strong>
-            </div>
-            <div class="panel-line">
-              <span>SIGNAL QUALITY</span>
-              <strong>STABLE</strong>
-            </div>
-            <div class="panel-line">
-              <span>LAST UPDATE</span>
-              <strong>2026.05.21</strong>
-            </div>
-          </aside>
-        </section>
-
-        <section class="section" id="projects" aria-labelledby="projects-title">
-          <div class="section-heading">
-            <p class="eyebrow">active shelves</p>
-            <h2 id="projects-title">Projects</h2>
+          <div class="panel-line">
+            <span>SIGNAL QUALITY</span>
+            <strong>STABLE</strong>
           </div>
-
-          <div class="project-grid">
-            {projects.map((project) => (
-              <article class="project-card">
-                <p>{project.tag}</p>
-                <h3>{project.title}</h3>
-                <span>{project.text}</span>
-              </article>
-            ))}
+          <div class="panel-line">
+            <span>LAST UPDATE</span>
+            <strong>2026.05.21</strong>
           </div>
-        </section>
+        </aside>
+      </section>
 
-        <section class="section updates-section" id="updates" aria-labelledby="updates-title">
-          <div class="section-heading">
-            <p class="eyebrow">latest logs</p>
-            <h2 id="updates-title">Updates</h2>
-          </div>
+      <section class="section" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <p class="eyebrow">active shelves</p>
+          <h2 id="projects-title">Projects</h2>
+        </div>
 
-          <div class="updates-list">
-            {updates.map((update) => (
-              <article class="update-row">
-                <time datetime={update.date.replaceAll(".", "-")}>{update.date}</time>
-                <div>
-                  <h3>{update.title}</h3>
-                  <p>{update.text}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
+        <div class="project-grid">
+          {projects.map((project) => (
+            <article class="project-card">
+              <p>{project.tag}</p>
+              <h3>{project.title}</h3>
+              <span>{project.text}</span>
+            </article>
+          ))}
+        </div>
+      </section>
 
-        <section class="archive-band" id="archive" aria-label="Archive statement">
-          <p>ARCHIVE NODE 00</p>
-          <h2>Signals preserved. Tools refined. Memories recompiled.</h2>
-        </section>
-      </main>
+      <section class="section updates-section" id="updates" aria-labelledby="updates-title">
+        <div class="section-heading">
+          <p class="eyebrow">latest logs</p>
+          <h2 id="updates-title">Updates</h2>
+        </div>
 
-      <footer class="site-footer" id="contact">
-        <nav aria-label="Social links">
-          <a href="https://github.com/" rel="noreferrer">GitHub</a>
-          <a href="https://x.com/" rel="noreferrer">X</a>
-          <a href="https://note.com/" rel="noreferrer">Note</a>
-          <a href="mailto:hello@example.com">Contact</a>
-        </nav>
-        <p>&copy; 2026 memory-forge. All signals reserved.</p>
-      </footer>
-    </div>
-  </body>
-</html>
+        <div class="updates-list">
+          {updates.map((update) => (
+            <article class="update-row">
+              <time datetime={update.date.replaceAll(".", "-")}>{update.date}</time>
+              <div>
+                <h3>{update.title}</h3>
+                <p>{update.text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="archive-band" id="archive" aria-label="Archive statement">
+        <p>ARCHIVE NODE 00</p>
+        <h2>Signals preserved. Tools refined. Memories recompiled.</h2>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <nav aria-label="Social links">
+        <a href="https://github.com/" rel="noreferrer">GitHub</a>
+        <a href="https://x.com/" rel="noreferrer">X</a>
+        <a href="https://note.com/" rel="noreferrer">Note</a>
+        <a href="mailto:hello@example.com">Contact</a>
+      </nav>
+      <p>&copy; 2026 memory-forge. All signals reserved.</p>
+    </footer>
+  </div>
+</Layout>
