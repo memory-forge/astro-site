@@ -27,6 +27,12 @@ const projects = [
 const updates = [
   {
     date: "2026.05.21",
+    title: "Monet exhibition review archived",
+    text: "モネ没後100年「クロード・モネ ― 風景への問いかけ」所感を追加。",
+    href: "/blog/monet-2026-review/"
+  },
+  {
+    date: "2026.05.21",
     title: "Archive shell initialized",
     text: "memory-forgeのトップページ構造を起動。"
   },
@@ -115,17 +121,20 @@ const updates = [
         </div>
 
         <div class="updates-list">
-          {updates.map((update) => (
-            <article class="update-row">
-              <time datetime={update.date.replaceAll(".", "-")}>{update.date}</time>
-              <div>
-                <h3>{update.title}</h3>
-                <p>{update.text}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+            {updates.map((update) => {
+              const UpdateTag = update.href ? "a" : "article";
+              return (
+                <UpdateTag class="update-row" href={update.href}>
+                  <time datetime={update.date.replaceAll(".", "-")}>{update.date}</time>
+                  <div>
+                    <h3>{update.title}</h3>
+                    <p>{update.text}</p>
+                  </div>
+                </UpdateTag>
+              );
+            })}
+          </div>
+        </section>
 
       <section class="archive-band" id="archive" aria-label="Archive statement">
         <p>ARCHIVE NODE 00</p>
