@@ -1,7 +1,5 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
-import monetArchiveImage from "../../assets/monet-2026-exhibition.webp";
 
 const title = "モネ没後100年「クロード・モネ ― 風景への問いかけ」所感";
 const date = "2026.05.21";
@@ -28,16 +26,12 @@ const date = "2026.05.21";
           <p class="eyebrow">archive log / exhibition note</p>
           <time datetime="2026-05-21">{date}</time>
           <h1>{title}</h1>
-          <figure class="article-archive-image">
-            <Image
-              src={monetArchiveImage}
-              alt="Monet exhibition archive image"
-              width={960}
-              height={540}
-              loading="eager"
-              decoding="async"
+          <figure class="article-image">
+            <img
+              src="/images/monet-2026.webp"
+              alt="モネ没後100年 クロード・モネ ― 風景への問いかけ"
+              loading="lazy"
             />
-            <figcaption>archive image / monet exhibition signal</figcaption>
           </figure>
         </header>
 
